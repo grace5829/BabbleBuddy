@@ -1,9 +1,31 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { createWorker } from "tesseract.js"
+
 
 export default function Home() {
+  const worker = createWorker();
 const [selectedImage, setSelectedImage]= useState(null)
 const [textResult, setTextResult]= useState("")
+
+
+const convertImageToText= async () =>{
+  await (await worker).loadLanguage('eng')
+  await (await worker).initialize('eng')
+const {data} = await (await worker).recognize(selectedImage)
+console.log(data.text)
+setTextResult(data.text)
+ await (await worker).terminate()
+// await worker.loadLanguage('eng');
+// await worker.initialize('eng');
+// const { data: { text } } = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');
+// console.log(text);
+// await worker.terminate();
+}
+
+useEffect(()=>{
+convertImageToText()
+}, [selectedImage])
 
 const handleChangeImage = (e) =>{
  setSelectedImage(e.target.files[0])
@@ -24,7 +46,7 @@ const handleChangeImage = (e) =>{
       )} 
       {textResult && (
         <div>
-          <p>textResult</p>
+          <p>{textResult}</p>
         </div>
       )}
       </div>
