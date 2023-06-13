@@ -3,6 +3,7 @@ import { useState } from "react"
 
 export default function Home() {
 const [selectedImage, setSelectedImage]= useState(null)
+const [textResult, setTextResult]= useState("")
 
 const handleChangeImage = (e) =>{
  setSelectedImage(e.target.files[0])
@@ -21,6 +22,11 @@ const handleChangeImage = (e) =>{
       <img src={URL.createObjectURL(selectedImage)} alt="thumb" />
       </div>
       )} 
+      {textResult && (
+        <div>
+          <p>textResult</p>
+        </div>
+      )}
       </div>
     </main>
   )
