@@ -1,12 +1,16 @@
 "use client"
+import Link from "next/link";
 import { useEffect, useState } from "react"
 import { createWorker } from "tesseract.js"
+
 
 
 export default function Home() {
   const worker = createWorker();
 const [selectedImage, setSelectedImage]= useState(null)
 const [textResult, setTextResult]= useState("")
+const [imageLang, setImageLang]= useState("eng")
+const [textLang, setTextLang]= useState("eng")
 
 
 const convertImageToText= async () =>{
@@ -32,6 +36,7 @@ const handleChangeImage = (e) =>{
 }
   return (
     <main>
+    <Link href="/speech">Speech</Link>
     <h1> Babble Buddy</h1>
     <h3>Text to image!</h3>
     <div> 
