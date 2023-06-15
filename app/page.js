@@ -80,7 +80,7 @@ export default function Home() {
     <main>
       <Link href="/speech">Speech</Link>
       <h1> Babble Buddy</h1>
-      <h3>Text to image!</h3>
+      <h3 className="uppercase text-lg tracking-widest text-red-600 font-caveat">Text to image!</h3>
       <div>
         <label>Upload Image</label>
         <input
@@ -116,7 +116,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className=" border-gray ">
+        <div className="border-gray">
           <label htmlFor="text-languages">Image Language:</label>
           <select name="text-languages" id="text-languages">
             {languagesKeys.map((language) => (
