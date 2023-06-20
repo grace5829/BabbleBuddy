@@ -6,6 +6,9 @@ import { createWorker } from "tesseract.js";
 import { languages } from "./languages";
 // import text.png from "./text.png"
 
+
+//create api backend route to translate the lanagues? 
+
 export default function Home() {
   const worker = createWorker();
   const [selectedImage, setSelectedImage] = useState(null);
@@ -25,6 +28,7 @@ export default function Home() {
   const { v4: uuidv4 } = require("uuid");
 
   let imageLangOptions = document.getElementById("image-languages");
+
   console.log(imageLangOptions);
   // let selectedImageLang=imageLangOptions.options[imageLangOptions.selectedIndex].text;
 
@@ -76,13 +80,14 @@ export default function Home() {
   const handleChangeImage = (e) => {
     setSelectedImage(e.target.files[0]);
   };
+
   return (
     <main>
       <Link href="/speech">Speech</Link>
       <h1> Babble Buddy</h1>
-      <h3 className="uppercase text-lg tracking-widest text-red-600 font-caveat">Text to image!</h3>
-      <div>
-        <label>Upload Image</label>
+      <h3 className="">Text to image!</h3>
+      <div className="">
+        <label >Upload Image</label>
         <input
           type="file"
           id="upload"
@@ -90,11 +95,11 @@ export default function Home() {
           onChange={handleChangeImage}
         />
       </div>
-
+                      {/* try onChange */}
       <label htmlFor="image-languages">Image Language:</label>
       <select name="image-languages" id="image-languages">
         {languagesKeys.map((language) => (
-          <option value={language} key={language}>
+          <option value={language} key={language} >
             {language}
           </option>
         ))}
@@ -116,20 +121,23 @@ export default function Home() {
           </div>
         )}
 
-        <div className="border-gray">
-          <label htmlFor="text-languages">Image Language:</label>
-          <select name="text-languages" id="text-languages">
+        <div className="border-2 border-black">
+          <label htmlFor="text-languages" className="border-2  py-px">Image Language:</label>
+
+          <select name="text-languages" id="text-languages" className="border-2 py-px">
             {languagesKeys.map((language) => (
               <option value={language} key={language}>
                 {language}
               </option>
             ))}
           </select>
+
           {textResult ? (
             <div>
               <p>{textResult}</p>
             </div>
           ) : null}
+
         </div>
       </div>
     </main>
