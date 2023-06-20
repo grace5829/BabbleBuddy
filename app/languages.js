@@ -1,0 +1,28 @@
+import React from 'react'
+
+export const languages =  {
+English: {image: "eng", text: "en"},
+Arabic: {image: "ara", text: "ar"},
+["Chinese-simplified"] : {image: "chi_sim", text: "zh-Hans"},
+German: {image: "deu", text: "de"},
+French: {image: "fra", text: "fr"},
+Irish: {image: "gle", text: "ga"},
+Hebrew: {image: "heb", text: "he"},
+Hindi: {image: "hin", text: "hi"},
+Hungarian: {image: "hun", text: "hu"},
+Indonesian: {image: "ind", text: "id"},
+Italian: {image: "ita", text: "it"},
+Japanese: {image: "jpn", text: "ja"},
+Korean: {image: "kor", text: "ko"},
+Norwegian: {image: "nor", text: "nb"},
+Polish: {image: "pol", text: "pl"},
+Portuguese: {image: "por", text: "pt-pt"},
+Russian: {image: "rus", text: "ru"},
+Spanish: {image: "dpa", text: "es"},
+Albanian: {image: "sql", text: "sq"},
+Swedish: {image: "swe", text: "sv"},
+Thai: {image: "tha", text: "th"},
+Turkish: {image: "tur", text: "tr"},
+Ukrainian: {image: "ukr", text: "uk"},
+Vietnamese: {image: "vie", text: "vi"},
+}
