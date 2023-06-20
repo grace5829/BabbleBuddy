@@ -13,10 +13,12 @@ export default function ImagePage() {
     
   const axios = require("axios").default;
   const { v4: uuidv4 } = require("uuid");
-  const [textResult, setTextResult] = useState("Upload image with text");
+  const [textResult, setTextResult] = useState("");
   const [textResultOriginal, setTextResultOriginal] = useState("");
-  const [textInputLang, setTextInputLang] = useState("en");
-  const [textOutputLang, setTextOutputLang] = useState("en");
+  const [textInputLang, setTextInputLang] = useState("");
+  const [textOutputLang, setTextOutputLang] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const languagesKeys = Object.keys(languages);
 
   const convertImageTextToSelectedLang = () => {
@@ -43,16 +45,10 @@ export default function ImagePage() {
       ],
       responseType: "json",
     }).then(function (response) {
+        console.log(response.data[0].translations[0].text)
       setTextResult(response.data[0].translations[0].text);
     });
   };
-
-
-  const handleChangeImage = (e) => {
-    setSelectedImage(e.target.files[0]);
-  };
-
-
 
   const handleTextLangChange = (evt) => {
     let selectedLang = evt.target.value;
@@ -61,10 +57,10 @@ export default function ImagePage() {
 
   useEffect(() => {
     convertImageTextToSelectedLang();
-  }, [textOutputLang]);
+  }, [textOutputLang, selectedImage, textInputLang]);
 
   return (
-    <LanguageContext.Provider value={[textResultOriginal, setTextResultOriginal, setTextResult]} >
+    <LanguageContext.Provider value={[selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang]} >
 
     <main>
       <Link href="/">Home</Link>
@@ -95,12 +91,12 @@ export default function ImagePage() {
 
           {textResult ? (
             <div>
-              <p>{textResult}</p>
+              {textResult}
             </div>
-          ) : (
-            <div>
+          ) : selectedImage? (<p>Select language</p>):
+          
+           (
               <p>Upload image with text</p>
-            </div>
           )}
         </div>
       </div>
