@@ -7,10 +7,8 @@ import {LanguageContext} from "./page.js"
 
 const ImageToText = () => {
     const worker = createWorker();
-const  [textResultOriginal, setTextResultOriginal, setTextResult]= useContext(LanguageContext)
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageLang, setImageLang] = useState("eng");
-  const [textInputLang, setTextInputLang] = useState("en");
+const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang]= useContext(LanguageContext)
+  const [imageLang, setImageLang] = useState("");
   const languagesKeys = Object.keys(languages);
 
 
@@ -31,10 +29,11 @@ const  [textResultOriginal, setTextResultOriginal, setTextResult]= useContext(La
     await (await worker).loadLanguage(imageLang);
     await (await worker).initialize(imageLang);
     const { data } = await (await worker).recognize(selectedImage);
-    setTextResult(data.text);
+    // setTextResult(data.text);
     setTextResultOriginal(data.text);
     await (await worker).terminate();
   };
+
   return (
     <div>
       <div>
@@ -61,9 +60,10 @@ const  [textResultOriginal, setTextResultOriginal, setTextResult]= useContext(La
 
       <div>
         {selectedImage == null ? (
-          <div>
-            <p> Upload Image with text</p>
+          <div className="flex justify-center">
+            <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className="h-80 "/>
           </div>
+ 
         ) : (
           <div>
             <img src={URL.createObjectURL(selectedImage)} alt="thumb" />
