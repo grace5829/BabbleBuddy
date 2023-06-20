@@ -2,21 +2,63 @@
 
 import Link from 'next/link'
 import React, { useState } from 'react'
-// import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-// import 'regenerator-runtime/runtime'
 
 const page = () => {
-    // const {
-    //     transcript,
-    //     listening,
-    //     resetTranscript,
-    //     browserSupportsSpeechRecognition
-    //   } = useSpeechRecognition();
-    
-    //   if (!browserSupportsSpeechRecognition) {
-    //     return <span>Browser doesn't support speech recognition.</span>;
-    //   }
 
+  // const fs = require("fs");
+  // const { Deepgram } = require("@deepgram/sdk");
+  
+  // // Your Deepgram API Key
+  // const deepgramApiKey = "YOUR_DEEPGRAM_API_KEY";
+  
+  // // Location of the file you want to transcribe. Should include filename and extension.
+  // // Example of a local file: ../../Audio/life-moves-pretty-fast.wav
+  // // Example of a remote file: https://static.deepgram.com/examples/interview_speech-analytics.wav
+  // const file = "YOUR_FILE_LOCATION";
+  
+  // // Mimetype for the file you want to transcribe
+  // // Only necessary if transcribing a local file
+  // // Example: audio/wav
+  // const mimetype = "YOUR_FILE_MIME_TYPE";
+  
+  // // Initialize the Deepgram SDK
+  // const deepgram = new Deepgram(deepgramApiKey);
+  
+  // // Check whether requested file is local or remote, and prepare accordingly
+  // if (file.startsWith("http")) {
+  //     // File is remote
+  //     // Set the source
+  //     source = {
+  //         url: file,
+  //     };
+  // } else {
+  //     // File is local
+  //     // Open the audio file
+  //     const audio = fs.readFileSync(file);
+  
+  //     // Set the source
+  //     source = {
+  //         buffer: audio,
+  //         mimetype: mimetype,
+  //     };
+  // }
+  
+  // // Send the audio to Deepgram and get the response
+  // deepgram.transcription
+  //     .preRecorded(source, {
+  //         smart_format: true,
+  //         model: "nova",
+  //     })
+  //     .then((response) => {
+  //         // Write the response to the console
+  //         console.dir(response, { depth: null });
+  
+  //         // Write only the transcript to the console
+  //         //console.dir(response.results.channels[0].alternatives[0].transcript, { depth: null });
+  //     })
+  //     .catch((err) => {
+  //         console.log(err);
+  //     });
 
       
 
@@ -25,11 +67,8 @@ const page = () => {
   return (
     <div>
         <Link href="/">Home</Link>
-        {/* <p>Microphone: {listening ? 'on' : 'off'}</p>
-      <button onClick={SpeechRecognition.startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button>
-      <p>{transcript}</p> */}
+        <Link href="/image"  className="mx-1.5">Upload Image</Link>
+    
     </div>
   )
 }
