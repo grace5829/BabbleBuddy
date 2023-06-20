@@ -15,9 +15,8 @@ export default function Home() {
   const { v4: uuidv4 } = require("uuid");
   const [selectedImage, setSelectedImage] = useState(null);
   const [textResult, setTextResult] = useState("Upload image with text");
-  const [textTranslated, setTextTranslated] = useState("");
+  const [textResultOriginal, setTextResultOriginal] = useState("");
   const [imageLang, setImageLang] = useState("eng");
-  const [textLang, setTextLang] = useState("eng");
   const [textInputLang, setTextInputLang] = useState("en");
   const [textOutputLang, setTextOutputLang] = useState("en");
 
@@ -45,12 +44,15 @@ export default function Home() {
       },
       data: [
         {
-          text: textResult,
+          text: textResultOriginal,
         },
       ],
       responseType: "json",
     }).then(function (response) {
-      console.log(JSON.stringify(response.data, null, 4));
+
+      console.log( JSON.stringify(response.data, null, 4))
+      console.log(response.data[0].translations[0].text)
+      setTextResult(response.data[0].translations[0].text);
     });
  }
 
@@ -62,6 +64,7 @@ export default function Home() {
     await (await worker).initialize(imageLang);
     const { data } = await (await worker).recognize(selectedImage);
     setTextResult(data.text);
+    setTextResultOriginal(data.text)
     await (await worker).terminate();
   };
 
