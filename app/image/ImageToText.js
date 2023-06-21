@@ -36,16 +36,9 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
 
   return (
     <div>
-      <div>
-        <label>Upload Image</label>
-        <input
-          type="file"
-          id="upload"
-          accept="image/*"
-          onChange={handleChangeImage}
-        />
-      </div>
-      <label htmlFor="image-languages">Image Language:</label>
+      <div className="flex justify-between">
+      <span className="">
+      <label htmlFor="image-languages" className="font-gillSans text-lg">Image Language:</label>
       <select
         name="image-languages"
         id="image-languages"
@@ -57,15 +50,29 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
           </option>
         ))}
       </select>
+      </span>
+      
+      <span className="mb-2">
+        <label className="font-gillSans text-lg">Upload Image:</label>
+        <input
+          type="file"
+          id="upload"
+          accept="image/*"
+          onChange={handleChangeImage}
+          className="bg-gray-100"
 
-      <div>
+        />
+      </span>
+        
+      </div>
+      <div className="bg-white flex justify-center h-96 items-center ">
         {selectedImage == null ? (
           <div className="flex justify-center">
             <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className="h-80 "/>
           </div>
  
         ) : (
-          <div>
+          <div >
             <img src={URL.createObjectURL(selectedImage)} alt="thumb" />
           </div>
         )}

@@ -67,31 +67,36 @@ export default function ImagePage() {
         setTextInputLang,
       ]}
     >
-      <main>
-        <div className="flex justify-between bg-gray-400 text-cyan-800 h-12 items-center">
+      <main className="bg-orange-100"> 
+        <div className="flex justify-between bg-orange-200 text-cyan-600 h-12 items-center">
           <div>
-            <h1 className="text-3xl font-caveat font-bold"> Babble Buddy</h1>
+            <h1 className="logoName text-3xl font-comicSans mx-1"> Babble Buddy</h1>
           </div>
           <div>
-            <Link href="/" className="font-markerFelt text-xl">Home</Link>
-            <Link href="/speech" className="mx-3.5 font-markerFelt text-xl" >
+            <Link href="/" className="font-markerFelt text-2xl">Home</Link>
+            <Link href="/speech" className="mx-3.5 font-markerFelt text-2xl" >
               Speech
             </Link>
           </div>
         </div>
-        <h3 className="">Image to text!</h3>
-        <div className="">
-          <ImageToText />
 
-          <div className="border-2 border-black">
-            <label htmlFor="text-languages" className="border-2  py-px">
+        <div className="flex justify-center">
+        <h3 className="font-gillSans font-medium text-5xl my-4">Image to text!</h3>
+        </div>
+
+        <span >
+
+        <div className="mx-32">
+          <ImageToText />
+          <div className="">
+          <div className="mb-2 mt-4 ">
+            <label htmlFor="text-languages" className="font-gillSans text-lg">
               Text Language:
             </label>
-
             <select
               name="text-languages"
               id="text-languages"
-              className="border-2 py-px"
+              className=""
               onChange={handleTextLangChange}
             >
               {languagesKeys.map((language) => (
@@ -100,6 +105,9 @@ export default function ImagePage() {
                 </option>
               ))}
             </select>
+          </div>
+
+<span className="flex justify-center  h-40 items-center bg-white">
 
             {textResult ? (
               <div>{textResult}</div>
@@ -108,8 +116,11 @@ export default function ImagePage() {
             ) : (
               <p>Upload image with text</p>
             )}
+</span>
           </div>
         </div>
+        </span>
+
       </main>
     </LanguageContext.Provider>
   );
