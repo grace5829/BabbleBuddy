@@ -1,16 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, createContext} from "react";
+import { useEffect, useState, createContext } from "react";
 import ImageToText from "./ImageToText";
 import { languages } from "./languages";
 // import text.png from "./text.png"
 
 //create api backend route to translate the lanagues?
-export const LanguageContext=createContext()
+export const LanguageContext = createContext();
 
 export default function ImagePage() {
-    
   const axios = require("axios").default;
   const { v4: uuidv4 } = require("uuid");
   const [textResult, setTextResult] = useState("");
@@ -45,7 +44,7 @@ export default function ImagePage() {
       ],
       responseType: "json",
     }).then(function (response) {
-        console.log(response.data[0].translations[0].text)
+      console.log(response.data[0].translations[0].text);
       setTextResult(response.data[0].translations[0].text);
     });
   };
@@ -60,48 +59,69 @@ export default function ImagePage() {
   }, [textOutputLang, selectedImage, textInputLang]);
 
   return (
-    <LanguageContext.Provider value={[selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang]} >
-
-    <main>
-      <Link href="/">Home</Link>
-      <Link href="/speech"  className="mx-1.5">Speech</Link>
-
-      <h1> Babble Buddy</h1>
-      <h3 className="">Image to text!</h3>
-      <div className="">
-        <ImageToText/>
-
-        <div className="border-2 border-black">
-          <label htmlFor="text-languages" className="border-2  py-px">
-            Text Language:
-          </label>
-
-          <select
-            name="text-languages"
-            id="text-languages"
-            className="border-2 py-px"
-            onChange={handleTextLangChange}
-          >
-            {languagesKeys.map((language) => (
-              <option value={language} key={language}>
-                {language}
-              </option>
-            ))}
-          </select>
-
-          {textResult ? (
-            <div>
-              {textResult}
-            </div>
-          ) : selectedImage? (<p>Select language</p>):
-          
-           (
-              <p>Upload image with text</p>
-          )}
+    <LanguageContext.Provider
+      value={[
+        selectedImage,
+        setSelectedImage,
+        setTextResultOriginal,
+        setTextInputLang,
+      ]}
+    >
+      <main className="bg-orange-100"> 
+        <div className="flex justify-between bg-orange-200 text-cyan-600 h-12 items-center">
+          <div>
+            <h1 className="logoName text-3xl font-comicSans mx-1"> Babble Buddy</h1>
+          </div>
+          <div>
+            <Link href="/" className="font-markerFelt text-2xl">Home</Link>
+            <Link href="/speech" className="mx-3.5 font-markerFelt text-2xl" >
+              Speech
+            </Link>
+          </div>
         </div>
-      </div>
-    </main>
-    </LanguageContext.Provider>
 
+        <div className="flex justify-center">
+        <h3 className="font-gillSans font-medium text-5xl my-4">Image to text!</h3>
+        </div>
+
+        <span >
+
+        <div className="mx-32">
+          <ImageToText />
+          <div className="">
+          <div className="mb-2 mt-4 ">
+            <label htmlFor="text-languages" className="font-gillSans text-lg">
+              Text Language:
+            </label>
+            <select
+              name="text-languages"
+              id="text-languages"
+              className=""
+              onChange={handleTextLangChange}
+            >
+              {languagesKeys.map((language) => (
+                <option value={language} key={language}>
+                  {language}
+                </option>
+              ))}
+            </select>
+          </div>
+
+<span className="flex justify-center  h-40 items-center bg-white">
+
+            {textResult ? (
+              <div>{textResult}</div>
+            ) : selectedImage ? (
+              <p>Select language</p>
+            ) : (
+              <p>Upload image with text</p>
+            )}
+</span>
+          </div>
+        </div>
+        </span>
+
+      </main>
+    </LanguageContext.Provider>
   );
 }
