@@ -36,7 +36,8 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className=" flex justify-between md:flex-col sm:flex-col">
+
       <span className="">
       <label htmlFor="image-languages" className="font-gillSans text-lg">Image Language:</label>
       <select
@@ -65,10 +66,10 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
       </span>
         
       </div>
-      <div className="bg-white flex justify-center h-96 items-center ">
+      <div className="bg-white rounded-md flex justify-center items-center">
         {selectedImage == null ? (
           <div className="flex justify-center">
-            <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className="h-80 "/>
+            <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className=" md:h-96 sm:h-44"/>
           </div>
  
         ) : (

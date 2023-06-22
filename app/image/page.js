@@ -67,7 +67,7 @@ export default function ImagePage() {
         setTextInputLang,
       ]}
     >
-      <main className="bg-orange-100"> 
+      <main className="bg-orange-100 min-h-screen min-w-screen"> 
         <div className="flex justify-between bg-orange-200 text-cyan-600 h-12 items-center">
           <div>
             <h1 className="logoName text-3xl font-comicSans mx-1"> Babble Buddy</h1>
@@ -81,7 +81,7 @@ export default function ImagePage() {
         </div>
 
         <div className="flex justify-center">
-        <h3 className="font-gillSans font-medium text-5xl my-4">Image to text!</h3>
+        <h3 className="font-gillSans font-medium my-4 md:text-5xl sm:text-3xl">Image to text</h3>
         </div>
 
         <span >
@@ -107,14 +107,14 @@ export default function ImagePage() {
             </select>
           </div>
 
-<span className="flex justify-center  h-40 items-center bg-white">
+<span className="flex justify-center  items-center rounded-md bg-white">
 
             {textResult ? (
               <div>{textResult}</div>
             ) : selectedImage ? (
-              <p>Select language</p>
+              <p className="md:h-1/2 sm:h-20 flex items-center" >Select language</p>
             ) : (
-              <p>Upload image with text</p>
+              <p className="md:h-40 sm:h-20 flex items-center">Upload image with text</p>
             )}
 </span>
           </div>
