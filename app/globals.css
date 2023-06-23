@@ -5,9 +5,10 @@
 @import "tailwindcss/utilities";
 
 
-html{
-  scroll-behavior: smooth
-}
+
+/* [data-theme="dark"]{
+  --color-primary-accent:#41c089
+} */
 
 .logoName{
   text-shadow: 2px 2px 0px #41c089
