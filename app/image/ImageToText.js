@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState, useContext, createContext } from "react";
 import { languages } from "./languages";
 import { createWorker } from "tesseract.js";
-
 import {LanguageContext} from "./page.js"
 
 const ImageToText = () => {
@@ -29,7 +28,6 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
     await (await worker).loadLanguage(imageLang);
     await (await worker).initialize(imageLang);
     const { data } = await (await worker).recognize(selectedImage);
-    // setTextResult(data.text);
     setTextResultOriginal(data.text);
     await (await worker).terminate();
   };
