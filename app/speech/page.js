@@ -18,10 +18,8 @@ useEffect(() => {
      mediaRecorder = new MediaRecorder(stream, {
         mimeType: "audio/webm",
     });
-    // mediaRecorder.active=false
-    // stream.active=false
+
     console.log(stream)
-    // console.log(mediaRecorder)
 
     const socket = new WebSocket("wss://api.deepgram.com/v1/listen", [
       "token",
