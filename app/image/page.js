@@ -5,7 +5,6 @@ import { useEffect, useState, createContext } from "react";
 import ImageToText from "./ImageToText";
 import { languages } from "./languages";
 import {useTheme} from "next-themes"
-// import text.png from "./text.png"
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
