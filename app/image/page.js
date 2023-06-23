@@ -5,8 +5,9 @@ import { useEffect, useState, createContext } from "react";
 import ImageToText from "./ImageToText";
 import { languages } from "./languages";
 import {useTheme} from "next-themes"
-import {ThemeProvider} from 'next-themes'
 // import text.png from "./text.png"
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 //create api backend route to translate the lanagues?
 export const LanguageContext = createContext();
@@ -71,12 +72,21 @@ export default function ImagePage() {
         setTextInputLang,
       ]}
     >
-      <main className="light:bg-orange-100 min-h-screen min-w-screen dark:bg-stone-700"> 
-        <div className="flex justify-between bg-orange-200 text-cyan-600 h-12 items-center dark:bg-stone-800 dark:text-cyan-700">
+      <main className="bg-orange-100 min-h-screen min-w-screen dark:bg-stone-700"> 
+        <div className="flex justify-between bg-orange-200 text-cyan-600 h-14 items-center dark:bg-stone-800 dark:text-cyan-700">
           <div>
             <h1 className="logoName text-3xl font-comicSans mx-1"> Babble Buddy</h1>
           </div>
-          <div>
+          <div className="flex">
+          {theme == "light" ? (
+            <div onClick={() => setTheme("dark")} className="mx-3.5 ">
+              <DarkModeIcon />
+            </div>
+          ) : (
+            <div onClick={() => setTheme("light")} className="mx-3.5 ">
+              <LightModeIcon />
+            </div>
+          )}
             <Link href="/" className="font-markerFelt text-2xl dark:text-cyan-700">Home</Link>
             <Link href="/speech" className="mx-3.5 font-markerFelt text-2xl dark:text-cyan-700" >
               Speech
@@ -126,13 +136,7 @@ export default function ImagePage() {
         </span>
 
 <div className="h-10"> </div>
-<footer className="p-10">
-    <span> 
-    <span onClick={()=> setTheme("light")}> Light  </span>|
-    <span onClick={()=> setTheme("dark")}> Dark  </span>| {theme}
-   </span>
 
-     </footer>
       </main>
     </LanguageContext.Provider>
   );
