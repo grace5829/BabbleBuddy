@@ -44,6 +44,7 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
         name="image-languages"
         id="image-languages"
         onChange={handleImageLangChange}
+        className="dark:bg-zinc-500 rounded-md ml-1"
       >
         {languagesKeys.map((language) => (
           <option value={language} key={language}>
@@ -60,13 +61,13 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
           id="upload"
           accept="image/*"
           onChange={handleChangeImage}
-          className="bg-gray-100"
+          className="bg-gray-100 rounded-md dark:bg-neutral-400 ml-1"
 
         />
       </span>
         
       </div>
-      <div className="bg-white rounded-md flex justify-center items-center">
+      <div className="bg-white rounded-md flex justify-center items-center dark:bg-gray-600">
         {selectedImage == null ? (
           <div className="flex justify-center">
             <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className=" md:h-96 sm:h-44"/>

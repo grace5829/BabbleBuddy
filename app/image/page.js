@@ -71,21 +71,21 @@ export default function ImagePage() {
         setTextInputLang,
       ]}
     >
-      <main className="light:bg-orange-100 min-h-screen min-w-screen dark:bg-gray-300"> 
-        <div className="flex justify-between bg-orange-200 text-cyan-600 h-12 items-center">
+      <main className="light:bg-orange-100 min-h-screen min-w-screen dark:bg-stone-700"> 
+        <div className="flex justify-between bg-orange-200 text-cyan-600 h-12 items-center dark:bg-stone-800 dark:text-cyan-700">
           <div>
             <h1 className="logoName text-3xl font-comicSans mx-1"> Babble Buddy</h1>
           </div>
           <div>
-            <Link href="/" className="font-markerFelt text-2xl">Home</Link>
-            <Link href="/speech" className="mx-3.5 font-markerFelt text-2xl" >
+            <Link href="/" className="font-markerFelt text-2xl dark:text-cyan-700">Home</Link>
+            <Link href="/speech" className="mx-3.5 font-markerFelt text-2xl dark:text-cyan-700" >
               Speech
             </Link>
           </div>
         </div>
 
         <div className="flex justify-center">
-        <h3 className="font-gillSans font-medium my-4 md:text-5xl sm:text-3xl dark:text-red-500">Image to text</h3>
+        <h3 className="font-gillSans font-medium my-4 md:text-5xl sm:text-3xl dark:text-emerald-600">Image to text</h3>
         </div>
 
         <span >
@@ -100,7 +100,7 @@ export default function ImagePage() {
             <select
               name="text-languages"
               id="text-languages"
-              className=""
+              className="dark:bg-zinc-500 rounded-md ml-1"
               onChange={handleTextLangChange}
             >
               {languagesKeys.map((language) => (
@@ -111,7 +111,7 @@ export default function ImagePage() {
             </select>
           </div>
 
-<span className="flex justify-center items-center rounded-md bg-white">
+<span className="flex justify-center items-center rounded-md bg-white dark:bg-gray-600">
 
             {textResult ? (
               <div>{textResult}</div>
