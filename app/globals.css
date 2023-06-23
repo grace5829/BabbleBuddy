@@ -5,9 +5,6 @@
 @import "tailwindcss/utilities";
 
 
-html{
-  scroll-behavior: smooth
-}
 
 .logoName{
   text-shadow: 2px 2px 0px #41c089

@@ -9,7 +9,9 @@ const page = () => {
 
 const [recorder, setRecorder]=useState()
 const [streamStore, setStreamStore]=useState()
+
 let mediaRecorder
+
 useEffect(() => {
 
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
@@ -38,7 +40,7 @@ useEffect(() => {
     socket.onmessage = (message)=>{
       const received = JSON.parse(message.data)
       const transcript=received.channel.alternatives[0].transcript
-      console.log(transcript)
+      console.log(received)
     }
 });
 }, [])
