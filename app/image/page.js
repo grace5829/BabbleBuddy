@@ -123,8 +123,8 @@ export default function ImagePage() {
 
 <span className="flex justify-center items-center rounded-md bg-white dark:bg-gray-600">
 
-            {textResult ? (
-              <div>{textResult}</div>
+            {textResultOriginal ? (
+              <div>{textResultOriginal}</div>
             ) : selectedImage ? (
               <p className="md:h-1/2 sm:h-20 flex items-center" >{textResult}</p>
             ) : (
