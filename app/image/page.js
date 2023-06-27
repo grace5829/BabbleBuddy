@@ -28,16 +28,16 @@ export default function ImagePage() {
 
   const convertImageTextToSelectedLang = () => {
     axios({
-      baseURL: `https://api.cognitive.microsofttranslator.com`,
-      // baseURL: `${process.env.NEXT_PUBLIC_IMAGE_TO_TEXT_ENDPOINT}`,
+      // baseURL: `https://api.cognitive.microsofttranslator.com`,
+      baseURL: `${process.env.NEXT_PUBLIC_IMAGE_TO_TEXT_ENDPOINT}`,
       url: "/translate",
       method: "post",
       headers: {
-        "Ocp-Apim-Subscription-Key": `0ea6074b21c449acb583bb9efdc84d05`,
-        // "Ocp-Apim-Subscription-Key": `${process.env.NEXT_PUBLIC_IMAGE_TO_TEXT_KEY}`,
+        // "Ocp-Apim-Subscription-Key": `0ea6074b21c449acb583bb9efdc84d05`,
+        "Ocp-Apim-Subscription-Key": `${process.env.NEXT_PUBLIC_IMAGE_TO_TEXT_KEY}`,
         // location required if you're using a multi-service or regional (not global) resource.
-        "Ocp-Apim-Subscription-Region": `eastus`,
-        // "Ocp-Apim-Subscription-Region": `${process.env.NEXT_PUBLIC_IMAGE_TO_TEXT_LOCATION}`,
+        // "Ocp-Apim-Subscription-Region": `eastus`,
+        "Ocp-Apim-Subscription-Region": `${process.env.NEXT_PUBLIC_IMAGE_TO_TEXT_LOCATION}`,
         "Content-type": "application/json",
         "X-ClientTraceId": uuidv4().toString(),
       },
