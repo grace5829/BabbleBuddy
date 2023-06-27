@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState, useContext, createContext } from "react";
-import { languages } from "./languages";
+import { Languages } from "./languages";
 import { createWorker } from "tesseract.js";
 import {LanguageContext} from "./page.js"
 
@@ -8,7 +8,7 @@ const ImageToText = () => {
     const worker = createWorker();
 const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang]= useContext(LanguageContext)
   const [imageLang, setImageLang] = useState("");
-  const languagesKeys = Object.keys(languages);
+  const languagesKeys = Object.keys(Languages);
 
 
   useEffect(() => {
@@ -17,8 +17,8 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
 
   const handleImageLangChange = (evt) => {
     let selectedLang = evt.target.value;
-    setImageLang(languages[selectedLang].image);
-    setTextInputLang(languages[selectedLang].text);
+    setImageLang(Languages[selectedLang].image);
+    setTextInputLang(Languages[selectedLang].text);
   };
   const handleChangeImage = (e) => {
     setSelectedImage(e.target.files[0]);

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, createContext } from "react";
 import ImageToText from "./ImageToText";
-import { languages } from "./languages";
+import { Languages } from "./languages";
 import {useTheme} from "next-themes"
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -22,7 +22,7 @@ export default function ImagePage() {
   const [textOutputLang, setTextOutputLang] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const languagesKeys = Object.keys(languages);
+  const languagesKeys = Object.keys(Languages);
 
   const convertImageTextToSelectedLang = () => {
     axios({
@@ -55,7 +55,7 @@ export default function ImagePage() {
 
   const handleTextLangChange = (evt) => {
     let selectedLang = evt.target.value;
-    setTextOutputLang(languages[selectedLang].text);
+    setTextOutputLang(Languages[selectedLang].text);
   };
 
   useEffect(() => {
