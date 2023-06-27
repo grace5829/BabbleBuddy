@@ -1,11 +1,11 @@
-// "use client"
+"use client"
 
-// import Link from 'next/link'
-// import React, { useState, useEffect } from 'react'
-// // import { Deepgram } from "@deepgram/sdk/browser";
+import Link from 'next/link'
+import React, { useState, useEffect } from 'react'
+// import { Deepgram } from "@deepgram/sdk/browser";
 
-// const Page = () => {
-//   // const deepgram = new Deepgram(process.env.NEXT_PUBLIC_SPEECH_TO_TEXT_KEY);
+const Page = () => {
+  // const deepgram = new Deepgram(process.env.NEXT_PUBLIC_SPEECH_TO_TEXT_KEY);
 
 // const [recorder, setRecorder]=useState()
 // const [streamStore, setStreamStore]=useState()
@@ -49,13 +49,13 @@
 // }
 
 
-//   return (
-//     <div>
-//         <Link href="/">Home</Link>
-//         <Link href="/image"  className="mx-1.5">Upload Image</Link>
-//       <div onClick={test}> Push</div>
-//     </div>
-//   )
-// }
+  return (
+    <div>
+        {/* <Link href="/">Home</Link>
+        <Link href="/image"  className="mx-1.5">Upload Image</Link>
+      <div onClick={test}> Push</div> */}
+    </div>
+  )
+}
 
-// export default page
+export default page
