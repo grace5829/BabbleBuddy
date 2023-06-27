@@ -4,7 +4,7 @@
 // import React, { useState, useEffect } from 'react'
 // // import { Deepgram } from "@deepgram/sdk/browser";
 
-// const page = () => {
+// const Page = () => {
 //   // const deepgram = new Deepgram(process.env.NEXT_PUBLIC_SPEECH_TO_TEXT_KEY);
 
 // const [recorder, setRecorder]=useState()

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const languages = {
+export const Languages = {
     ["PICK-ONE"]:{},
   Albanian: { image: "sql", text: "sq" },
   Arabic: { image: "ara", text: "ar" },
