@@ -14,6 +14,7 @@ export default function Home() {
      {/* <Link href="/speech" className="mx-1.5">Record Voice</Link> */}
     <ImagePage/>
    
+   
     </main>
     </ThemeProvider>
   );
