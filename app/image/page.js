@@ -129,7 +129,7 @@ export default function ImagePage() {
             {textResult ? (
               <div>{textResult}</div>
             ) : selectedImage ? (
-              <p className="md:h-1/2 sm:h-20 flex items-center" >{textResult}</p>
+              <p className="md:h-1/2 sm:h-20 flex items-center" >Select a language</p>
             ) : (
               <p className="md:h-40 sm:h-20 flex items-center">Upload image with text</p>
             )}

@@ -1,10 +1,11 @@
 import React from "react";
 
 export const Languages = {
-  English: { image: "eng", text: "en" },
+    ["PICK-ONE"]:{},
   Albanian: { image: "sql", text: "sq" },
   Arabic: { image: "ara", text: "ar" },
   ["Chinese-simplified"]: { image: "chi_sim", text: "zh-Hans" },
+  English: { image: "eng", text: "en" },
   French: { image: "fra", text: "fr" },
   German: { image: "deu", text: "de" },
   Hebrew: { image: "heb", text: "he" },
