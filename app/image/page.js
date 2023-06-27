@@ -7,6 +7,7 @@ import { Languages } from "./languages";
 import {useTheme} from "next-themes"
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import textpng from "../../assets/text.png"
 
 //create api backend route to translate the lanagues?
 export const LanguageContext = createContext();
@@ -16,11 +17,11 @@ export default function ImagePage() {
 
   const axios = require("axios").default;
   const { v4: uuidv4 } = require("uuid");
-  const [textResult, setTextResult] = useState("");
+  const [textResult, setTextResult] = useState("Upload image with text");
   const [textResultOriginal, setTextResultOriginal] = useState("");
-  const [textInputLang, setTextInputLang] = useState("");
-  const [textOutputLang, setTextOutputLang] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [textInputLang, setTextInputLang] = useState("en");
+  const [textOutputLang, setTextOutputLang] = useState("eng");
+  const [selectedImage, setSelectedImage] = useState(textpng);
 
   const languagesKeys = Object.keys(Languages);
 
@@ -47,7 +48,7 @@ export default function ImagePage() {
         },
       ],
       responseType: "json",
-    }).then(function (response) {
+    }).then(console.log(textInputLang, textOutputLang)).then(function (response) {
       console.log(response.data[0].translations[0].text);
       setTextResult(response.data[0].translations[0].text);
     });
@@ -61,7 +62,7 @@ export default function ImagePage() {
   useEffect(() => {
     convertImageTextToSelectedLang();
   }, [textOutputLang, selectedImage, textInputLang]);
-
+  
   return (
     <LanguageContext.Provider
       value={[
@@ -125,7 +126,7 @@ export default function ImagePage() {
             {textResult ? (
               <div>{textResult}</div>
             ) : selectedImage ? (
-              <p className="md:h-1/2 sm:h-20 flex items-center" >Select language</p>
+              <p className="md:h-1/2 sm:h-20 flex items-center" >{textResult}</p>
             ) : (
               <p className="md:h-40 sm:h-20 flex items-center">Upload image with text</p>
             )}

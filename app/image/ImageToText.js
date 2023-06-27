@@ -3,6 +3,8 @@ import { useEffect, useState, useContext, createContext } from "react";
 import { Languages } from "./languages";
 import { createWorker } from "tesseract.js";
 import {LanguageContext} from "./page.js"
+import textpng from "../../assets/text.png"
+import Image from 'next/image'
 
 const ImageToText = () => {
     const worker = createWorker();
@@ -28,6 +30,7 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
     await (await worker).loadLanguage(imageLang);
     await (await worker).initialize(imageLang);
     const { data } = await (await worker).recognize(selectedImage);
+    console.log("converImageToText function", data.text)
     setTextResultOriginal(data.text);
     await (await worker).terminate();
   };
@@ -66,9 +69,10 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
         
       </div>
       <div className="bg-white rounded-md flex justify-center items-center dark:bg-gray-600">
-        {selectedImage == null ? (
+        {selectedImage == textpng ? (
           <div className="flex justify-center">
-            <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className=" md:h-96 sm:h-44"/>
+            <Image src={textpng} alt="thumb" className=" md:h-96 sm:h-44"/>
+            {/* <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className=" md:h-96 sm:h-44"/> */}
           </div>
  
         ) : (
