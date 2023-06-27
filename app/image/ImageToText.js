@@ -69,7 +69,7 @@ const  [ selectedImage,setSelectedImage, setTextResultOriginal, setTextInputLang
         
       </div>
       <div className="bg-white rounded-md flex justify-center items-center dark:bg-gray-600">
-        {selectedImage == textpng ? (
+        {selectedImage =="" ? (
           <div className="flex justify-center">
             <Image src={textpng} alt="thumb" className=" md:h-72 sm:h-44"/>
             {/* <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png" alt="thumb" className=" md:h-96 sm:h-44"/> */}

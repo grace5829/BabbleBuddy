@@ -8,6 +8,7 @@ import {useTheme} from "next-themes"
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import textpng from "../../assets/text.png"
+import SelectInput from "@mui/material/Select/SelectInput";
 
 //create api backend route to translate the lanagues?
 export const LanguageContext = createContext();
@@ -17,11 +18,11 @@ export default function ImagePage() {
 
   const axios = require("axios").default;
   const { v4: uuidv4 } = require("uuid");
-  const [textResult, setTextResult] = useState("Upload image with text");
+  const [textResult, setTextResult] = useState("");
   const [textResultOriginal, setTextResultOriginal] = useState("");
   const [textInputLang, setTextInputLang] = useState("en");
   const [textOutputLang, setTextOutputLang] = useState("eng");
-  const [selectedImage, setSelectedImage] = useState(textpng);
+  const [selectedImage, setSelectedImage] = useState("");
 
   const languagesKeys = Object.keys(Languages);
 
@@ -65,7 +66,7 @@ export default function ImagePage() {
   useEffect(() => {
     convertImageTextToSelectedLang();
   }, [textOutputLang, selectedImage, textInputLang]);
-  
+  console.log(selectedImage)
   return (
     <LanguageContext.Provider
       value={[
@@ -128,10 +129,10 @@ export default function ImagePage() {
 
             {textResult ? (
               <div>{textResult}</div>
-            ) : selectedImage !== textpng ? (
-              <p className="md:h-1/2 sm:h-20 flex items-center" >Select a language</p>
+            ) : selectedImage == "" ? (
+              <p className="md:h-1/2 sm:h-20 flex items-center">Upload image with text</p>
             ) : (
-              <p className="md:h-40 sm:h-20 flex items-center">Upload image with text</p>
+              <p className="md:h-1/2 sm:h-20 flex items-center" >Select a language</p>
             )}
 </span>
           </div>
